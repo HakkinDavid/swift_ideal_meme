@@ -2,7 +2,7 @@
 //  Swift_Ideal_MemeApp.swift
 //  Swift Ideal Meme
 //
-//  Created by CETYS Universidad  on 19/02/25.
+//  Created by David Santana  on 19/02/25.
 //
 
 import SwiftUI

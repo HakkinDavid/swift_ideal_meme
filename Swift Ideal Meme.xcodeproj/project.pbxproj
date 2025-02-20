@@ -399,6 +399,12 @@
 				DEVELOPMENT_TEAM = 4VAQ6PKXRG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Fotografiar memes";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Para ubicar tus memes";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Para ubicar tus memes";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Para ubicar tus memes";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Grabar notas";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Buscar memes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +434,12 @@
 				DEVELOPMENT_TEAM = 4VAQ6PKXRG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Fotografiar memes";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Para ubicar tus memes";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Para ubicar tus memes";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Para ubicar tus memes";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Grabar notas";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Buscar memes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

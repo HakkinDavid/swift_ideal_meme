@@ -19,12 +19,11 @@ struct MemeDetailView: View {
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(LinearGradient(colors: [Color.blue, Color.purple], startPoint: .leading, endPoint: .trailing))
+                    .background(.black)
                     .cornerRadius(12)
-                    .shadow(radius: 10)
                 
                 VStack(alignment: .leading, spacing: 10){
-                    Text("Descripción de mi trabajo")
+                    Text("Descripción de mi situación")
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
@@ -53,12 +52,12 @@ struct MemeDetailView: View {
             }
             .padding()
         }
-        .background(Color.gray.opacity(0.2))
-        .navigationTitle("Meme Details")
+        .background(Color.white)
+        .navigationTitle("Detalles del meme")
     }
 }
 
 #Preview {
-    MemeDetailView(meme: MemeMatch(title: "Ejemplo", description: "Ejemplo de una descripcion")
+    MemeDetailView(meme: MemeMatch(title: "Ejemplo", description: "Ejemplo de una descripción")
     )
 }

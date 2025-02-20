@@ -20,13 +20,14 @@ struct FormView: View {
     @State private var showImagePicker: Bool = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var locationManager = LocationManager()
+    //@State private var voicenote: VoiceNote?
     
     var body: some View {
         NavigationView{
             Form{
-                Section(header: Text("What is this MemeMatch about?")) {
-                    TextField("Title", text: $title)
-                    TextField("Description of the meme", text: $description)
+                Section(header: Text("¿Qué meme te representa hoy?")) {
+                    TextField("Nombre del meme", text: $title)
+                    TextField("Descripción de la situación", text: $description)
                 }
                 VStack {
                     if let image = image {
@@ -61,22 +62,22 @@ struct FormView: View {
                             userLatitude = locationManager.region.center.latitude
                             userLongitude = locationManager.region.center.longitude
                         }) {
-                            Label("Agregar ubicación", systemImage: "location.fill")
+                            Label("Agregar ubicación de tu situación actual", systemImage: "location.fill")
                         }}
                 }
                 
             }
-            .navigationTitle("Add new MemeMatch")
+            .navigationTitle("Agregar MemeMatch")
             .toolbar{
                 ToolbarItem(placement: .navigationBarLeading){
-                    Button("Cancel"){
+                    Button("Cancelar"){
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
                 
                 // Recuerda guardar la ubicacion y la imagen cuando le pique save
                 ToolbarItem(placement: .navigationBarTrailing){
-                    Button("Save"){
+                    Button("Guardar"){
                         let newMemeMatch = MemeMatch(title: title, description: description, image: image, latitude: userLatitude, longitude: userLongitude)
                         memes.append(newMemeMatch)
                         presentationMode.wrappedValue.dismiss()

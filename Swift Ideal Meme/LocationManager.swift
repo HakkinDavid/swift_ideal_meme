@@ -1,7 +1,7 @@
 // Código proporcionado por la profesora
 //
 //  LocationManager.swift
-//  ManejadorDeMemeMatchs
+//  ManejadorDeMemeMatches
 //
 //  Created by Gabriela Sanchez on 12/02/25.
 //

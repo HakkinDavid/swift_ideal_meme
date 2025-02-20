@@ -27,7 +27,7 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteMemeMatch)
             }
-            .navigationTitle("Lista de MemeMatchs")
+            .navigationTitle("Lista de MemeMatches")
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button(action: {

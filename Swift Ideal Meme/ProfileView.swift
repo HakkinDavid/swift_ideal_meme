@@ -39,10 +39,14 @@ struct ProfileView: View {
             }
             Section(header: Text("Datos personales")) {
                 TextField("Nombre", text: $profile.name)
+                    .foregroundColor(.blue)
                 TextField("Apellido", text: $profile.surname)
+                    .foregroundColor(.red)
                 TextField("Edad", value: $profile.age, formatter: NumberFormatter())
+                    .foregroundColor(.gray)
                     .keyboardType(UIKeyboardType.decimalPad)
             }
+            .background(Color.green)
         }
     }
         

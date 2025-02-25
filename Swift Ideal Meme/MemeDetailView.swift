@@ -16,22 +16,23 @@ struct MemeDetailView: View {
                 Text(meme.title)
                     .font(.title3)
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .foregroundColor(.yellow)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(.black)
+                    .background(.blue)
                     .cornerRadius(12)
                 
                 VStack(alignment: .leading, spacing: 10){
                     Text("Descripción de mi situación")
                         .font(.title2)
                         .fontWeight(.semibold)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.white)
                     
                     Text(meme.description)
                         .font(.body)
                         .multilineTextAlignment(.leading)
                         .padding()
+                        .foregroundColor(.black)
                     
                     // Mostrar la ubicación utilizando un mapa:
                     if let latitude = meme.latitude, let longitude = meme.longitude {
@@ -52,7 +53,7 @@ struct MemeDetailView: View {
             }
             .padding()
         }
-        .background(Color.white)
+        .background(Color.brown)
         .navigationTitle("Detalles del meme")
     }
 }

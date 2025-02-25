@@ -401,8 +401,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Fotografiar memes";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Para ubicar tus memes";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Para ubicar tus memes";
-				INFOPLIST_KEY_NSLocationUsageDescription = "Para ubicar tus memes";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Para ubicar tus memes";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Grabar notas";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Buscar memes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -436,8 +435,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Fotografiar memes";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Para ubicar tus memes";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Para ubicar tus memes";
-				INFOPLIST_KEY_NSLocationUsageDescription = "Para ubicar tus memes";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Para ubicar tus memes";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Grabar notas";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Buscar memes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

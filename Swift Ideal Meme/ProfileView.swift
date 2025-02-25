@@ -10,56 +10,41 @@ import SwiftUI
 struct ProfileView: View {
     @State private var showImagePicker: Bool = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    var profile=Profile.self
+    @Binding var profile: ProfileModel
     
     var body: some View {
-        Text("ProfileView")
-        ScrollView {
-            OnInsertTableRowModifier()
-            VStack(alignment: .leading, spacing: 20) {
-                Text(profile.name)
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(.red)
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(.blue)
-                    .cornerRadius(12)
-                
-                VStack(alignment: .leading, spacing: 10){
-                    Text("Descripción de mi situación")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.green)
-                    
-                    Text(profile.description)
-                        .font(.body)
-                        .multilineTextAlignment(.leading)
-                        .padding()
-                    
-                    
-                    .sheet(isPresented: $showImagePicker) {
-                        ImagePicker(selectedImage: profile.image, sourceType: sourceType)
-                        }
-                    if let image = profile.image {
+        Text("Perfil")
+        Form{
+            VStack {
+                Section(header: Text("Foto de perfil")) {
+                    if let image = $profile.picture.wrappedValue {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 300, height: 300)
                             .padding()
+                    } else {
+                        Text("No seleccionó ninguna foto de perfil")
                     }
-                    
-                }
+                    Button(action: {
+                        sourceType = .photoLibrary
+                        showImagePicker = true
+                    }) {
+                        Label("Selecciona una foto de perfil", systemImage: "photo")
+                    }
+                    .sheet(isPresented: $showImagePicker) {
+                        ImagePicker(selectedImage: $profile.picture, sourceType: sourceType)
+                    }}
+                
             }
-            .padding()
+            Section(header: Text("Datos personales")) {
+                TextField("Nombre", text: $profile.name)
+                TextField("Apellido", text: $profile.surname)
+                TextField("Edad", value: $profile.age, formatter: NumberFormatter())
+                    .keyboardType(UIKeyboardType.decimalPad)
+            }
         }
-        .background(Color.white)
-        .navigationTitle("Detalles del meme")
     }
         
         
-}
-
-#Preview{
-    ProfileView(profile: Profile(id: , id: <#ObjectIdentifier#>, name: "Adam", description: "Dia perfecto",image: <#T##UIImage?#>,age: 25))
 }

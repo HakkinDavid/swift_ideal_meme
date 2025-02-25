@@ -16,6 +16,8 @@ struct ContentView: View {
     ]
     
     @State private var showAddMemeMatchView:Bool = false
+    @State private var showProfileView:Bool = false
+    @Binding var profile: ProfileModel
     
     var body: some View {
         NavigationView {
@@ -36,6 +38,13 @@ struct ContentView: View {
                         Image(systemName: "plus")
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button(action: {
+                        showProfileView = true
+                    }) {
+                        Image(systemName: "person.circle.fill")
+                    }
+                }
                 ToolbarItem(placement: .navigationBarLeading){
                     EditButton()
                 }
@@ -43,14 +52,13 @@ struct ContentView: View {
             .sheet(isPresented: $showAddMemeMatchView) {
                 FormView(memes: $memes)
             }
+            .sheet(isPresented: $showProfileView) {
+                ProfileView(profile: $profile)
+            }
         }
     }
     
     func deleteMemeMatch(at offset: IndexSet) {
         memes.remove(atOffsets: offset)
     }
-}
-
-#Preview {
-    ContentView()
 }

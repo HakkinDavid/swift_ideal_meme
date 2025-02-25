@@ -40,8 +40,12 @@ struct ProfileView: View {
             Section(header: Text("Datos personales")) {
                 TextField("Nombre", text: $profile.name)
                 TextField("Apellido", text: $profile.surname)
-                TextField("Edad", value: $profile.age, formatter: NumberFormatter())
-                    .keyboardType(UIKeyboardType.decimalPad)
+                Picker(selection: $profile.age, label: Text("Edad")) {
+    
+                    ForEach(13...120, id: \.self) {
+                        Text("\($0)").tag(Int($0))
+                    }
+                }
             }
         }
     }

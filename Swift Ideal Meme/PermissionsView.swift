@@ -50,7 +50,7 @@ struct PermissionsView: View {
 
                 }
                 Spacer()
-                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true))
+                NavigationLink(destination: ContentView(profile: $profile).navigationBarBackButtonHidden(true))
                 {
                    Text("Continuar")
                }

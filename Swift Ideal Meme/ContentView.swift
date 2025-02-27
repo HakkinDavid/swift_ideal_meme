@@ -8,12 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var memes: [MemeMatch] = [
-    MemeMatch(title: "Prueba",
-         description: "No seas tan crédulo, McFly"),
-    MemeMatch(title: "Otra prueba",
-         description: "Otro gato")
-    ]
+    @State private var memes: [MemeMatch] = []
     
     @State private var showAddMemeMatchView:Bool = false
     @State private var showProfileView:Bool = false

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Contacts
 import MapKit
 struct FormView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -16,6 +17,7 @@ struct FormView: View {
     // Nuevos estados
     @State private var userLatitude: Double?
     @State private var userLongitude: Double?
+    @State private var userLocationAddress: String?
     @State private var image: UIImage? = nil
     @State private var showImagePicker: Bool = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
@@ -31,6 +33,10 @@ struct FormView: View {
                 }
                 VStack {
                     if let image = image {
+                        Text("Imagen de la situación")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
@@ -52,15 +58,25 @@ struct FormView: View {
                 }
                 VStack {
                     if let latitude = userLatitude, let longitude = userLongitude {
-                        Map(coordinateRegion: .constant(.init(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1)))
-                        )
-                        .frame(height: 200)
+                        Text("Ubicación de la situación")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                        
+                        Text(userLocationAddress ?? "Sin ubicación")
+                            .font(.body)
+                            .multilineTextAlignment(.leading)
+                            .padding()
+                            .foregroundColor(.white)
                     }
                     else {
                         Button(action: {
                             locationManager.requestLocation()
                             userLatitude = locationManager.region.center.latitude
                             userLongitude = locationManager.region.center.longitude
+                            locationManager.lookUpCurrentLocation(completionHandler: {
+                                userLocationAddress = CNPostalAddressFormatter().string(from:$0?.postalAddress ?? CNPostalAddress())
+                            } )
                         }) {
                             Label("Agregar ubicación de tu situación actual", systemImage: "location.fill")
                         }}
@@ -78,10 +94,10 @@ struct FormView: View {
                 // Recuerda guardar la ubicacion y la imagen cuando le pique save
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button("Guardar"){
-                        let newMemeMatch = MemeMatch(title: title, description: description, image: image, latitude: userLatitude, longitude: userLongitude)
+                        let newMemeMatch = MemeMatch(title: title, description: description, image: image, latitude: userLatitude, longitude: userLongitude, address: userLocationAddress)
                         memes.append(newMemeMatch)
                         presentationMode.wrappedValue.dismiss()
-                    }
+                    }.disabled(title == "" || description == "" || image == nil)
                 }
             }
         }

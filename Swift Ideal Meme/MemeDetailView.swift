@@ -32,14 +32,23 @@ struct MemeDetailView: View {
                         .font(.body)
                         .multilineTextAlignment(.leading)
                         .padding()
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                     
-                    // Mostrar la ubicación utilizando un mapa:
-                    if let latitude = meme.latitude, let longitude = meme.longitude {
-                        Map(coordinateRegion: .constant(.init(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1)))
-                        )
-                        .frame(height: 200)
-                    }
+                    Text("Ubicación de la situación")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                    
+                    Text(meme.address ?? "Sin ubicación")
+                        .font(.body)
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                        .foregroundColor(.white)
+                    
+                    Text("Imagen de la situación")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
                     
                     if let image = meme.image {
                         Image(uiImage: image)

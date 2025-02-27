@@ -15,4 +15,5 @@ struct MemeMatch: Identifiable {
     var image: UIImage?
     var latitude: Double?
     var longitude: Double?
+    var address: String?
 }

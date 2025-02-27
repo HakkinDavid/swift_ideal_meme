@@ -39,7 +39,6 @@ struct ProfileView: View {
             }
             Section(header: Text("Datos personales")) {
                 TextField("Nombre", text: $profile.name)
-                    .foregroundColor(.blue)
                 TextField("Apellido", text: $profile.surname)
                 Picker(selection: $profile.age, label: Text("Edad")) {
                     ForEach(13...120, id: \.self) {
@@ -47,7 +46,6 @@ struct ProfileView: View {
                     }
                 }
             }
-            .background(Color.green)
         }
     }
         
